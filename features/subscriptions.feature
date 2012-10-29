@@ -6,7 +6,7 @@ Feature: RSS Subscriptions
   Scenario: Subscribe to a new feed
     Given I am a registered user
      When I subscribe to "http://xkcd.com/rss.xml" feed
-     Then I should see "XKCD" in my subscriptions list
+     Then I should have "xkcd.com" in my subscriptions list
 
   Scenario: Unsubscribe from a feed
     Given I am a registered user
