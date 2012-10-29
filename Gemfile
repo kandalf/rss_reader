@@ -17,10 +17,12 @@ end
 group :development, :test do
   gem 'debugger' 
   gem 'unicorn'
+  gem 'faker'
 end
 
 group :test do
  gem 'cucumber-rails'
  gem 'database_cleaner'
  gem 'rspec-rails'
+ gem 'summoner'
 end
