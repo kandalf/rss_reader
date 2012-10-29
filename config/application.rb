@@ -61,6 +61,7 @@ module RssReader
 
     config.generators do |c|
       c.template_engine :haml
+      c.test_framework :rspec
     end
   end
 end
