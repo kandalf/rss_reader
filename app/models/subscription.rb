@@ -8,7 +8,7 @@ class Subscription < ActiveRecord::Base
   protected
   def fetch_feed
     if new_record? && title.nil?
-      @feed = FeedNormalizer::FeedNormalizer.parse(attributes[:url])
+      @feed = FeedNormalizer::FeedNormalizer.parse(self.url)
       self.title = @feed.title
     end
   end
