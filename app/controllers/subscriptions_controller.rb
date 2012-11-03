@@ -1,5 +1,6 @@
 class SubscriptionsController < ApplicationController
   def index
+    @subscriptions = Subscription.all
   end
 
   def create
@@ -19,5 +20,4 @@ class SubscriptionsController < ApplicationController
 
     render :json => subscription
   end
-
 end

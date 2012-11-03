@@ -17,10 +17,10 @@ Feature: RSS Subscriptions
   Scenario: Listing subscriptions
     Given I am a registered user
       And I have a subscription to
-        | title              |
-        | xkcd.com           |
-        | Thee Funky Monkeys |
+        | domain                |
+        | xkcd.com              |
+        | threefunkymonkeys.com |
      When I go to my subscriptions index
      Then I should see "xkcd.com"
-      And I should see "Three Funky Monkeys"
+      And I should see "threefunkymonkeys.com"
         

@@ -21,6 +21,15 @@ Given /^I have a subscription to "(.*?)"$/ do |domain_name|
   subscription = Subscription.create({:url => feed_url, :title => domain_name.capitalize})
 end
 
+Given /^I have a subscription to$/ do |table|
+  table.hashes.each do |attrs|
+    attrs['url'] = "http://#{attrs['domain']}/rss.xml"
+    attrs['title'] = attrs['domain'].capitalize
+    attrs.delete('domain')
+    Subscription.create(attrs)
+  end
+end
+
 When /^I unsubscribe from "(.*?)"$/ do |domain_name|
   feed_url = "http://#{domain_name}/rss.xml"
   subscription = Subscription.find_by_url(feed_url)
@@ -32,4 +41,13 @@ end
 Then /^I should not have a subscription to "(.*?)"$/ do |domain_name|
   urls = Subscription.all.map(&:url).join(" ")
   urls.should_not include domain_name
+end
+
+When /^I go to my subscriptions index$/ do
+  response = page.driver.get '/subscriptions'
+  response.should be_ok
+end
+
+Then /^I should see "(.*?)"$/ do |text|
+  page.body.downcase.should include text.downcase
 end
