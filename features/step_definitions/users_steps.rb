@@ -11,7 +11,7 @@ When /^I subscribe to "(.*?)" feed$/ do |feed_url|
   subscription_attrs["title"].should_not be_nil
 end
 
-Then /^I should have "(.*?)" in my subscriptions list$/ do |feed_domain_name|
+Then /^I should have "(.*?)" in my subscriptions list$/ do |domain_name|
   urls = Subscription.all.map(&:url).join(" ")
-  urls.should include feed_domain_name
+  urls.should include domain_name
 end
