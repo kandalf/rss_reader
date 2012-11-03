@@ -15,3 +15,21 @@ Then /^I should have "(.*?)" in my subscriptions list$/ do |domain_name|
   urls = Subscription.all.map(&:url).join(" ")
   urls.should include domain_name
 end
+
+Given /^I have a subscription to "(.*?)"$/ do |domain_name|
+  feed_url = "http://#{domain_name}/rss.xml"
+  subscription = Subscription.create({:url => feed_url, :title => domain_name.capitalize})
+end
+
+When /^I unsubscribe from "(.*?)"$/ do |domain_name|
+  feed_url = "http://#{domain_name}/rss.xml"
+  subscription = Subscription.find_by_url(feed_url)
+
+  response = page.driver.delete "/subscriptions/#{subscription.id}"
+  response.should be_ok
+end
+
+Then /^I should not have a subscription to "(.*?)"$/ do |domain_name|
+  urls = Subscription.all.map(&:url).join(" ")
+  urls.should_not include domain_name
+end

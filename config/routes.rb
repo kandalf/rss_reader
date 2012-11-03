@@ -1,6 +1,6 @@
 RssReader::Application.routes.draw do
 
-  resources :subscriptions, :only => [:index, :create]
+  resources :subscriptions, :only => [:index, :create, :destroy]
 
   # root :to => 'welcome#index'
 
