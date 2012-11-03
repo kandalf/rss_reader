@@ -5,6 +5,7 @@ gem 'pg'
 gem 'jquery-rails'
 gem 'twitter-bootstrap-rails'
 gem 'haml-rails'
+gem 'feed-normalizer'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
