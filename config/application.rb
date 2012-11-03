@@ -63,5 +63,7 @@ module RssReader
       c.template_engine :haml
       c.test_framework :rspec
     end
+
+    config.sass.preferred_syntas = :sass
   end
 end

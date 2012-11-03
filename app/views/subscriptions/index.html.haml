@@ -1,5 +1,9 @@
-%h1= t('Subscriptions')
-%ul.subscriptions-list
-  -@subscriptions.each do |subscription|
-    %li.subscription-title{:data => {:'subscription-id' => subscription.id}}
-      = subscription.title
+#new-subscription-container.hidden
+  .well.well-large.center
+    = form_for(@subscription, :remote => true) do |f|
+      = f.label :url
+      = f.text_field :url
+      = f.submit 'Subscribe', :disable_with => 'Subscribing...', :class => 'btn btn-success btn-mini'
+      = f.submit 'Cancel', :disable_with => 'Subscribing...', :class => 'btn btn-danger btn-mini'
+
+%ul#feed-items

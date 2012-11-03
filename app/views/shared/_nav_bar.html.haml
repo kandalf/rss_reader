@@ -1,0 +1,10 @@
+%ul.nav-bar
+  %li
+    %button#subscribe-btn.btn.btn-primary= t('Subscribe')
+  %li#subscriptions
+    %h5= t('My Subscriptions')
+    %ul.small
+      - @subscriptions.each do |sub|
+        %li.subscription-title{:data => {:'subscription-id' => sub.id}}
+          = link_to sub.title, subscriptions_path, :remote => true
+          

@@ -1,5 +1,6 @@
 class SubscriptionsController < ApplicationController
   def index
+    @subscription = Subscription.new
     @subscriptions = Subscription.all
   end
 
