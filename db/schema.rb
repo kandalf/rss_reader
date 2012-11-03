@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121103004135) do
+ActiveRecord::Schema.define(:version => 20121103225906) do
+
+  create_table "articles", :force => true do |t|
+    t.string   "title"
+    t.string   "link"
+    t.text     "description"
+    t.date     "pub_date"
+    t.boolean  "starred"
+    t.boolean  "read"
+    t.integer  "subscription_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
 
   create_table "subscriptions", :force => true do |t|
     t.string   "url"
