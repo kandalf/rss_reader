@@ -3,8 +3,8 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.8'
 gem 'pg'
 gem 'jquery-rails'
-gem 'twitter-bootstrap-rails'
 gem 'haml-rails'
+gem 'bootstrap-sass'
 gem 'feed-normalizer'
 
 group :assets do
