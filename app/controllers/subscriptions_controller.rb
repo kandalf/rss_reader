@@ -8,7 +8,11 @@ class SubscriptionsController < ApplicationController
     @subscription = Subscription.new(params[:subscription])
 
     if @subscription.save
-      render :json => @subscription
+      if request.xhr?
+        render :json => @subscription
+      else
+        redirect_to root_path
+      end
     else
       render :json => @subscription.errors, :status => :unprocessable_entity
     end

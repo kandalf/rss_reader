@@ -6,5 +6,5 @@
     %ul.small
       - @subscriptions.each do |sub|
         %li.subscription-title{:data => {:'subscription-id' => sub.id}}
-          = link_to sub.title, subscriptions_path, :remote => true
+          = link_to sub.title, subscription_path(sub), :remote => true
           
