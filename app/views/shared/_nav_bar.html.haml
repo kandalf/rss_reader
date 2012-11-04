@@ -5,6 +5,5 @@
     %h5= t('My Subscriptions')
     %ul.small
       - @subscriptions.each do |sub|
-        %li.subscription-title{:data => {:'subscription-id' => sub.id}}
-          = link_to sub.title, subscription_path(sub), :remote => true
-          
+        %li.subscription-title
+          = link_to sub.title, subscription_path(sub), :remote => true, :class => 'subscription-link', :data => { :id => sub.id }

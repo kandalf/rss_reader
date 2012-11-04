@@ -25,4 +25,14 @@ class SubscriptionsController < ApplicationController
 
     render :json => subscription
   end
+
+  def show
+    @subscription = Subscription.find(params[:id])
+    render :partial => "articles", :locals => {:subscription => @subscription, :layout => false} if request.xhr?
+  end
+
+  def refresh
+    @subscription = Subscription.find(params[:subscription_id])
+    render :json => @subscription.fetch_articles if request.xhr?
+  end
 end

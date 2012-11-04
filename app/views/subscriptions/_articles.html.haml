@@ -1,0 +1,9 @@
+-subscription.articles.each do |a|
+  %li
+    %h4= link_to a.title, a.link, :target => :blank
+    .article-content
+      =raw a.description
+
+
+
+= javascript_include_tag 'refresh_feeds'

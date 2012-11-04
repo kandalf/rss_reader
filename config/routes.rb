@@ -1,6 +1,8 @@
 RssReader::Application.routes.draw do
 
-  resources :subscriptions, :only => [:index, :create, :destroy]
+  resources :subscriptions do
+    get '/refresh', :action => :refresh
+  end
 
   root :to => 'subscriptions#index'
 
